@@ -1,7 +1,5 @@
 import React from "react";
-import store from "../store";
-import { Provider } from "react-redux";
-import Ticker from "../components/Ticker";
+import Ticker from "../features/tickers/Ticker";
 import Search from "../features/tickers/Search";
 import { useSelector } from "react-redux";
 import "./App.css";
