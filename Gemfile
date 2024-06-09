@@ -29,3 +29,5 @@ end
 
 
 gem "vite_rails", "~> 3.0"
+
+gem "rubocop", "~> 1.64"
