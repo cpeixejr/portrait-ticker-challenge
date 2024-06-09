@@ -30,8 +30,10 @@ export function searchTicker(ticker) {
   if (ticker === "") return;
   return async function (dispatch, getState) {
     const res = await fetch(`/api/v1/ticker?q=${ticker}`);
-    const data = await res.json();
 
+    if (res.status != 200) return;
+
+    const data = await res.json();
     dispatch({ type: "ticker/searchTicker", payload: data });
   };
 }
