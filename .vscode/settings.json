@@ -1,0 +1,6 @@
+{
+  "notebook.defaultFormatter": "esbenp.prettier-vscode",
+  "rubyLsp.formatter": "none",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
