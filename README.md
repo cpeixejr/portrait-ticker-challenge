@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This challenge consists of building a single-page application that allows input of a stock ticker and displays the prices and volumes for the date range from 1/1/2023 until 12/31/2023 using Rails and React
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* Ruby version: 3.2.2
+* Node version: 20.10.0
 
 * Configuration
+1 - `bundle install`
+2 - `npm install`
 
-* Database creation
+* Start the server
+`foreman start -f Procfile.dev`
 
-* Database initialization
+* Run the test suite
+`rails test`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
