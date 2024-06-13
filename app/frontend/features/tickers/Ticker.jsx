@@ -1,9 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function Ticker() {
-  const ticker = useSelector((state) => state.ticker);
-
+function Ticker({ ticker }) {
   return (
     <>
       <p>{ticker.name}</p>
@@ -20,19 +18,19 @@ function Ticker() {
           <tr>
             <td>Price</td>
             <td>
-              {ticker.maxPrice.toLocaleString("en-US", {
+              {ticker.max_price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
             </td>
             <td>
-              {ticker.minPrice.toLocaleString("en-US", {
+              {ticker.min_price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
             </td>
             <td>
-              {ticker.avgPrice.toLocaleString("en-US", {
+              {ticker.avg_price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
@@ -41,17 +39,17 @@ function Ticker() {
           <tr>
             <td>Volume</td>
             <td>
-              {ticker.maxVolume.toLocaleString("en-US", {
+              {ticker.max_volume.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
               })}
             </td>
             <td>
-              {ticker.minVolume.toLocaleString("en-US", {
+              {ticker.min_volume.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
               })}
             </td>
             <td>
-              {ticker.avgVolume.toLocaleString("en-US", {
+              {ticker.avg_volume.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
               })}
             </td>

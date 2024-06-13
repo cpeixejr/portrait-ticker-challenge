@@ -1,6 +1,9 @@
 class Api::V1::TickersController < ApplicationController
   def search
-    return unless params[:q].present?
+    unless params[:q].present?
+      render json: { message: 'You should include a ticker name' }, status: :bad_request
+      return
+    end
 
     ticker = params[:q].upcase
 
@@ -14,15 +17,18 @@ class Api::V1::TickersController < ApplicationController
     }
 
     body = JSON.parse(res.body)
-    results = body["results"]
+    results = body['results']
 
-    return unless results
+    unless results
+      render json: { message: 'No tickers were found' }, status: :not_found
+      return
+    end
 
-    prices = results.map{|p| p["c"]}
-    volumes = results.map{|v| v["v"]}
+    prices = results.map { |p| p['c'] }
+    volumes = results.map { |v| v['v'] }
 
     @ticker = {
-      name: body["ticker"],
+      name: body['ticker'],
       min_price: prices.min,
       max_price: prices.max,
       avg_price: prices.inject(0.0) { |sum, el| sum + el } / prices.size,
@@ -31,6 +37,6 @@ class Api::V1::TickersController < ApplicationController
       avg_volume: volumes.inject(0.0) { |sum, el| sum + el } / volumes.size,
     }
 
-    render json: @ticker
+    render json: @ticker, status: :ok
   end
 end
