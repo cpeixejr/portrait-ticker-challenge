@@ -8,7 +8,8 @@ function Search() {
 
   const dispatch = useDispatch();
 
-  function handleClick() {
+  function handleSubmit(e) {
+    e.preventDefault();
     if (!tickerName) return;
     dispatch(searchTicker(tickerName));
     setTickerName("");
@@ -16,17 +17,17 @@ function Search() {
 
   return (
     <>
-      <div className="input-group">
-        <label className="ticker-label">Enter a Stock Ticker</label>
-        <input
-          className="form-input"
-          value={tickerName}
-          onChange={(e) => setTickerName(e.target.value)}
-        />
-        <button className="btn" onClick={handleClick}>
-          Search
-        </button>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+          <label className="ticker-label">Enter a Stock Ticker</label>
+          <input
+            className="form-input"
+            value={tickerName}
+            onChange={(e) => setTickerName(e.target.value)}
+          />
+          <button className="btn">Search</button>
+        </div>
+      </form>
     </>
   );
 }
